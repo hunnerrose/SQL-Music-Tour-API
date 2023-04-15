@@ -8,15 +8,8 @@ require('dotenv').config()
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
-// SEQUELIZE CONNECTION
-const sequelize = new Sequelize(process.env.PG_URI)
+// SEQUELIZE CONNECTION (no longer needed since we installed the sequelize config; connection handled in the index.js file)
 
-try {
-    sequelize.authenticate()
-    console.log(`Connecion has been established successfully!`)
-} catch (err) {
-    console.log(`Unable to connect to PG: ${err}`)
-}
 
 // ROOT
 app.get('/', (req, res) => {
